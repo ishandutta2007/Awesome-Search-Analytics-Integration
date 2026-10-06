@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <linearGradient id="accent-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <linearGradient id="title-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.3"/>
+    </pattern>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    
+    <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="25" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Animations for Dynamic Dynamic Visual Elements in Background */
+    @keyframes pulse-node {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 0.95; }
+    }
+    @keyframes float-orb {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(180deg); }
+      100% { transform: translateY(0px) rotate(360deg); }
+    }
+    @keyframes dash-flow {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes scanner-line {
+      0% { transform: translateY(0px); opacity: 0.2; }
+      50% { transform: translateY(380px); opacity: 0.8; }
+      100% { transform: translateY(0px); opacity: 0.2; }
+    }
+
+    .orb-1 { animation: float-orb 12s infinite ease-in-out; transform-origin: 200px 100px; }
+    .orb-2 { animation: float-orb 16s infinite ease-in-out reverse; transform-origin: 1000px 300px; }
+    .node-pulse { animation: pulse-node 4s infinite ease-in-out; transform-origin: center; }
+    .flow-line { stroke-dasharray: 8 8; animation: dash-flow 20s linear infinite; }
+  </style>
+
+  <!-- Base Dark Canvas -->
+  <rect width="1200" height="400" fill="url(#bg-gradient)" rx="12"/>
+
+  <!-- Background Grid -->
+  <rect width="1200" height="400" fill="url(#grid)" rx="12"/>
+
+  <!-- Dynamic Floating Glowing Background Orbs (Behind Foreground Text) -->
+  <circle class="orb-1" cx="150" cy="80" r="180" fill="#38bdf8" opacity="0.12" filter="url(#glow-heavy)"/>
+  <circle class="orb-2" cx="1050" cy="320" r="220" fill="#a855f7" opacity="0.15" filter="url(#glow-heavy)"/>
+  <circle cx="600" cy="200" r="250" fill="#6366f1" opacity="0.08" filter="url(#glow-heavy)"/>
+
+  <!-- Background Vector Connection Lines & Dynamic Nodes -->
+  <g stroke="#38bdf8" stroke-opacity="0.25" stroke-width="1.5">
+    <line x1="100" y1="320" x2="250" y2="280" class="flow-line"/>
+    <line x1="250" y1="280" x2="380" y2="340" class="flow-line"/>
+    <line x1="820" y1="80" x2="950" y2="120" class="flow-line"/>
+    <line x1="950" y1="120" x2="1100" y2="60" class="flow-line"/>
+  </g>
+
+  <!-- Glowing Vector Data Nodes in Background -->
+  <circle cx="100" cy="320" r="6" fill="#38bdf8" class="node-pulse" filter="url(#glow-light)"/>
+  <circle cx="250" cy="280" r="8" fill="#818cf8" class="node-pulse" filter="url(#glow-light)"/>
+  <circle cx="380" cy="340" r="5" fill="#c084fc" class="node-pulse" filter="url(#glow-light)"/>
+  <circle cx="820" cy="80" r="7" fill="#38bdf8" class="node-pulse" filter="url(#glow-light)"/>
+  <circle cx="950" cy="120" r="9" fill="#c084fc" class="node-pulse" filter="url(#glow-light)"/>
+  <circle cx="1100" cy="60" r="5" fill="#818cf8" class="node-pulse" filter="url(#glow-light)"/>
+
+  <!-- Foreground Content Block (Always Crystal Clear on Top) -->
+  <g text-anchor="middle" transform="translate(600, 0)">
+    
+    <!-- Top Pill Badge -->
+    <g transform="translate(0, 55)">
+      <rect x="-140" y="0" width="280" height="32" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1.5" filter="url(#glow-light)"/>
+      <text x="0" y="21" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">OCTOBER 2026 EDITION</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="155" fill="url(#title-gradient)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.5" filter="url(#glow-light)">
+      Awesome Search &amp; Analytics
+    </text>
+    <text x="0" y="210" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5">
+      Integration Ecosystem
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="400">
+      Curated Index of Full-Text Search Engines, Vector Databases &amp; Log Analytics
+    </text>
+
+    <!-- Bottom Feature Tag Pills -->
+    <g transform="translate(0, 310)">
+      <!-- Tag 1: Search Engines -->
+      <g transform="translate(-230, 0)">
+        <rect x="0" y="0" width="140" height="30" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#38bdf8" stroke-width="1"/>
+        <text x="70" y="19" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">🔍 Search Engines</text>
+      </g>
+      <!-- Tag 2: Vector DBs -->
+      <g transform="translate(-70, 0)">
+        <rect x="0" y="0" width="140" height="30" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#818cf8" stroke-width="1"/>
+        <text x="70" y="19" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">⚡ Vector DBs &amp; AI</text>
+      </g>
+      <!-- Tag 3: Log Analytics -->
+      <g transform="translate(90, 0)">
+        <rect x="0" y="0" width="140" height="30" rx="8" fill="#0f172a" fill-opacity="0.8" stroke="#c084fc" stroke-width="1"/>
+        <text x="70" y="19" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">📊 Log Analytics</text>
+      </g>
+    </g>
+
+  </g>
+</svg>
